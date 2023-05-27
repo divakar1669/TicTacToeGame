@@ -15,7 +15,7 @@ const win =[
     [0,1,2],
     [3,4,5],
     [6,7,8],
-    [0,5,9],
+    [0,4,8],
     [0,3,6],
     [1,4,7],
     [2,5,8],
@@ -39,7 +39,7 @@ function check(currentPlayer)
         playerArray = o_palyer;
     }
 
-    for(let i=0;i<win.length;i++)
+    for(let i in win)
     {
         const x = win[i].every(element => {
             return playerArray.indexOf(element) !== -1;
