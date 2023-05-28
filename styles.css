@@ -8,6 +8,7 @@
 :root {
     --orange: #145277;
     --winning-blocks: #2d414b;
+    --backgroundCplor :#83d0cb;
 }
 
 h2
@@ -17,12 +18,11 @@ center;margin: 20px;
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 10px 20px;
     border-radius: 10px;
     background-color: var(--orange);
-    color: #ddfff7;
-    border-color: var(--orange);
+    color: var(--backgroundCplor);
     font-size: 18px;
     transition: 200ms transform;
     font-weight: 600;
@@ -32,11 +32,10 @@ button:hover {
     transform: translateY(-2px);
 }
 
-
 .game-board {
     display: grid;
-    grid-template-rows: 200px 200px 200px;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
    
 }
 
@@ -49,12 +48,14 @@ button:hover {
 
 }
 
-// for some css stylings
+/*  for some css stylings */
+
 body {
     color: var(--orange);
     font-family: 'Finger Paint', cursive;  
     display: flex;
     justify-content: center;
+    background-color: var(--backgroundCplor);;
 }
 
 h1 {
@@ -75,9 +76,8 @@ h1 {
 .box {
 
     border: 1px;
-
-    height: 200px;
-    width:200px;
+    height: 150px;
+    width:150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,10 +94,68 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #83d0cb;
+    background-color: var(--backgroundCplor);
 }
 
 .hide 
 {
     visibility: hidden;
 }
+
+
+/* for toggle balck theme #9A69E4 */
+
+
+.topcorner{
+    margin: 5px;
+    position:absolute;
+    top:0;
+    right:0;
+    padding-right: 10px;
+   }
+
+label {
+    width:50px;
+    height:20px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+    cursor: pointer;
+}
+
+label:after {
+    content: "";
+    width:25px;
+    height: 20px;
+    position: absolute;
+    top:0px;
+    left:0px;
+    background: linear-gradient(180deg,#ffcc89,#d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+input:checked + label {
+    background: #242424;
+}
+
+
+input:checked + label:after {
+    left:49px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+}
+  label, label:after {
+    transition: 0.3s
+  }
+
+
+

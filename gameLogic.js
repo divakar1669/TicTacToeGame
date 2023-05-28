@@ -30,14 +30,9 @@ function check(currentPlayer)
 {
     var playerArray =[]
     if(currentPlayer === X_TEXT)
-    {
-
-        playerArray = x_palyer;
-    }
+    {    playerArray = x_palyer;    }
     else
-    {
-        playerArray = o_palyer;
-    }
+    {   playerArray = o_palyer;    }
 
     for(let i in win)
     {
@@ -117,6 +112,20 @@ function endGame(currentPlayer)
 function restartfun()
 {   
     location.reload();
-    gameOver= false;
-    currentPlayer = X_TEXT;
+}
+
+
+function darkMode()
+{
+    var Isdark = document.getElementById("darkmode-toggle");
+    if(Isdark.checked === true )
+    {
+        document.documentElement.style.setProperty('--orange', '#ffcc00');
+        document.documentElement.style.setProperty('--backgroundCplor', '#1a2634');
+    }
+    else
+    {
+        document.documentElement.style.setProperty('--orange', '#145277');
+        document.documentElement.style.setProperty('--backgroundCplor', '#83d0cb');
+    }
 }
