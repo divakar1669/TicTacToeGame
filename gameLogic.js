@@ -79,12 +79,12 @@ function myFunction(id,now=true)
     document.getElementById(id).innerHTML = currentPlayer;
     alreadyPicked[ele] = true;
     addtoCurrentPlayer(currentPlayer,ele)
-    console.log(id,currentPlayer);
+    // console.log(id,currentPlayer);
 
     console.log( check(currentPlayer))
     if ( check(currentPlayer) === true )
     {
-        console.log(currentPlayer)
+        // console.log(currentPlayer)
         palyer.innerHTML = "The Winner Is "+currentPlayer;
         gameOver =true;
         return;
