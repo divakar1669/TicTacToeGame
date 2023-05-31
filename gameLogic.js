@@ -4,6 +4,8 @@ let counter =0;
 let alreadyPicked  = Array(9).fill(false)
 const X_TEXT = "X";
 const O_TEXT = "O";
+let onePlayer = true;
+let now = true;
 
 let currentPlayer  = X_TEXT;
 
@@ -66,7 +68,7 @@ function addtoCurrentPlayer(currentPlayer,ele)
 startGame()
 
 
-function myFunction(id)
+function myFunction(id,now=true)
 {
     if(gameOver)
         return;
@@ -94,6 +96,21 @@ function myFunction(id)
     {
         palyer.innerHTML = "Game Over ! ~Draw";
         return;
+    }
+    
+    if(onePlayer === true && now === true)
+    {
+        while(true)
+        {
+            var  i = Math.floor(Math.random() * 9);
+            if(alreadyPicked[i]===true)
+                continue;
+            else
+            {   
+                myFunction(i,false);
+                return;
+            }
+        }
     }
         
 }
@@ -128,4 +145,10 @@ function darkMode()
         document.documentElement.style.setProperty('--orange', '#145277');
         document.documentElement.style.setProperty('--backgroundCplor', '#83d0cb');
     }
+}
+
+
+function singleOrDouble(play)
+{
+    onePlayer =play;
 }
