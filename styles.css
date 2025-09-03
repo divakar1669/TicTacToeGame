@@ -32,11 +32,47 @@ button:hover {
     transform: translateY(-2px);
 }
 
+.input-container { /* Style for the new input area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space below the input area */
+}
+
+#boardSizeInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 180px; /* Adjusted width */
+    color: var(--orange);
+    background-color: var(--backgroundCplor);
+}
+
+#boardSizeInput::placeholder {
+    color: var(--orange);
+    opacity: 0.7;
+}
+
+#startGameButton { /* Specific styling for the start game button if needed */
+    padding: 10px 20px;
+    font-size: 16px;
+    /* General button styles will apply, add specifics if different */
+}
+
+
 .game-board {
     display: grid;
-    grid-template-rows: 150px 150px 150px;
-    grid-template-columns: 150px 150px 150px;
-   
+    /* grid-template-rows and columns are set by JS */
+    gap: 5px; /* Gap between cells */
+    width: 80vmin; /* Responsive width */
+    max-width: 600px; /* Max size */
+    aspect-ratio: 1 / 1; /* Keep it square */
+    background-color: var(--orange); /* Background for the grid lines (gap color) */
+    border: 5px solid var(--orange); /* Outer border for the board */
+    border-radius: 5px; /* Slightly rounded corners for the board */
+    margin-bottom: 20px; /* Space below the board */
 }
 
 .headers
@@ -62,29 +98,35 @@ h1 {
     font-size: 70px;
     text-transform: uppercase;
     font-weight: bold;
-    
 }
 
+/* 
+The :nth-child border rules below are for a fixed 3x3 grid and will not work correctly for N x N.
+Replacing with a simpler border style on all boxes and using the 'gap' property on game-board.
+*/
+/*
 .box:nth-child(3n) {
     border-right: none;
 }
 .box:nth-child(6) ~ .box {
     border-bottom: none;
 } 
-
+*/
 
 .box {
-
-    border: 1px;
-    height: 150px;
-    width:150px;
+    /* height and width will be determined by the grid layout */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--orange);
-    font-size: 120px;
-    border-right: 5px solid;
-    border-bottom: 5px solid;
+    font-size: 5rem; /* Relative font size, adjust as needed */
+    /* border-right: 5px solid; */ /* Replaced by individual box borders or relying on gap */
+    /* border-bottom: 5px solid; */ /* Replaced by individual box borders or relying on gap */
+    background-color: var(--backgroundCplor); /* Background for the cells */
+    cursor: pointer; /* Add cursor pointer to cells */
+    border-radius: 3px; /* Slightly rounded corners for cells */
+    /* A thin border can define cells even if gap is small, or remove if gap is preferred visual separator */
+    /* border: 1px solid var(--orange); */ 
 }
 
 .container {
